@@ -19,3 +19,47 @@ int main(){
     cout << "Min = " << B[5];
     return 0;
 }
+
+void stat(const double x[],int y,double z[]){
+    double sum =0.0;  
+    for(int i = 0 ; i<y ; i++){
+        sum += x[i];
+    }
+    
+    double product = 1.0; 
+    for(int i = 0 ; i<y ; i++){
+        product *= x[i];
+    }
+
+    double mean = 0.0;  
+    for(int i = 0 ; i<y ; i++){
+        mean += pow(x[i]-(sum/y),2);
+    }
+
+
+    double fraction = 0.0; 
+    for(int i = 0 ; i<y ; i++){
+        fraction += 1.0/x[i];
+    }
+
+    double max = x[0] , min = x[0];
+    for(int i = 1 ; i<y ; i++){
+        if(x[i]>max) max = x[i];
+        if(x[i]<min) min = x[i];
+    }
+    
+    
+     z[0] = sum/y;  
+
+     z[1] = pow((mean/y),0.5) ; 
+
+     z[2] = pow(product , 1.0/y);  
+     
+     z[3] = y/fraction; 
+
+     z[4] = max;
+    
+     z[5] = min;
+
+    
+}
